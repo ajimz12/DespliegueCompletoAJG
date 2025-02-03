@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   const [message, setMessage] = useState("");
   useEffect(() => {
-    fetch("/api/db")
+    fetch("/api/ajg")
       .then((res) => res.json())
       .then((data) => setMessage(data.message));
   }, []);
