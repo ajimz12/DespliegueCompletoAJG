@@ -1,5 +1,5 @@
-CREATE TABLE messages (
+CREATE TABLE secretosAJG (
  id INT AUTO_INCREMENT PRIMARY KEY,
- content VARCHAR(255) NOT NULL
+ fraseAJG VARCHAR(255) NOT NULL
 );
-INSERT INTO messages (content) VALUES ('La base de datos responde, Holaaa!');
+INSERT INTO secretosAJG (fraseAJG) VALUES ('La base de datos responde, buenos días Alvaro Jimenez');

@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DbController extends AbstractController
+class AJG_Controller  extends AbstractController
 {
     private Connection $connection;
     public function __construct(Connection $connection)
@@ -18,7 +18,7 @@ class DbController extends AbstractController
     public function index(): JsonResponse
     {
         // Consulta para recuperar el primer mensaje de la tabla "messages"
-        $sql = 'SELECT content FROM messages LIMIT 1';
+        $sql = 'SELECT fraseAJG FROM secretosAJG LIMIT 1';
         $result = $this->connection->fetchOne($sql);
         // Si no hay mensaje en la BD, devolver un mensaje de error
         if (!$result) {
