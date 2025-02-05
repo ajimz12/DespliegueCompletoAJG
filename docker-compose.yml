@@ -4,7 +4,7 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: DockerfilleServicioAJG
+      dockerfile: DockerfileServicioAJG
     ports:
       - "3000:3000"
     volumes:
@@ -20,7 +20,7 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: DockerfilleServicioAJG
+      dockerfile: DockerfileServicioAJG
     ports:
       - "8000:8000"
     volumes:
@@ -56,8 +56,8 @@ services:
       - "8080:80"
     environment:
       PMA_HOST: database
-      PMA_USER: user
-      PMA_PASSWORD: password
+      PMA_USER: alumnoDAW  
+      PMA_PASSWORD: passAJG  
     depends_on:
       - database
     networks:
@@ -66,7 +66,7 @@ services:
   web:
     build:
       context: ./web
-      dockerfile: DockerfilleServicioAJG
+      dockerfile: DockerfileServicioAJG
     ports:
       - "80:80"
     depends_on:
