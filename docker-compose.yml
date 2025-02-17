@@ -39,11 +39,8 @@ services:
     image: mysql:8.0
     ports:
       - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: AJG_BD 
-      MYSQL_USER: alumnoDAW 
-      MYSQL_PASSWORD: passAJG
+    env_file:
+      - .env
     volumes:
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
       - database_data:/var/lib/mysql
@@ -54,10 +51,10 @@ services:
     image: phpmyadmin/phpmyadmin
     ports:
       - "8080:80"
+    env_file:
+      - .env  # Usa el mismo archivo de entorno
     environment:
-      PMA_HOST: database
-      PMA_USER: alumnoDAW  
-      PMA_PASSWORD: passAJG  
+      PMA_HOST: database 
     depends_on:
       - database
     networks:
@@ -69,9 +66,13 @@ services:
       dockerfile: DockerfileServicioAJG
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - ./web/certs:/etc/nginx/certs
     depends_on:
       - frontend
       - backend
+    restart: unless-stopped
     networks:
       - app-network
 

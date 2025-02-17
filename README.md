@@ -16,6 +16,6 @@
 
 #### Base de datos:
 - MySQL
-
+- Implementar un .env y definir las variables de usuario y contraseña de la base de datos
 
 #### Despliegue en AWS
